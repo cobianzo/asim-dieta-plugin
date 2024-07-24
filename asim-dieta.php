@@ -86,3 +86,8 @@ require_once( PREFIX_ASIM_PLUGIN_DIR . 'loader.php' );
 
 // Register activation hook (this has to be in the main plugin file or refer bit.ly/2qMbn2O)
 register_activation_hook( __FILE__, 'prefix_activate_plugin' );
+
+
+// Starting calling the includes
+
+require PREFIX_ASIM_PLUGIN_DIR . 'includes/initial-setup.php';
