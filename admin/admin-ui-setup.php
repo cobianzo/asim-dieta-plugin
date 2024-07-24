@@ -19,7 +19,7 @@ if ( ! defined('ABSPATH') ) exit;
  * @refer https://developer.wordpress.org/plugins/administration-menus/
  */
 function prefix_add_menu_links() {
-	add_options_page ( __('Starter Plugin','starter-plugin'), __('Starter Plugin','starter-plugin'), 'update_core', 'starter-plugin','prefix_admin_interface_render'  );
+	add_options_page ( __('Asim Dieta','asim'), __('Asim Dieta','asim'), 'update_core', 'asim-dieta','prefix_admin_interface_render'  );
 }
 add_action( 'admin_menu', 'prefix_add_menu_links' );
 
@@ -40,17 +40,17 @@ function prefix_register_settings() {
 	// Register A New Section
     add_settings_section(
         'prefix_general_settings_section',							// ID
-        __('Starter Plugin General Settings', 'starter-plugin'),		// Title
+        __('Asim Dieta General Settings', 'asim'),		// Title
         'prefix_general_settings_section_callback',					// Callback Function
-        'starter-plugin'											// Page slug
+        'asim-dieta'											// Page slug
     );
 	
 	// General Settings
     add_settings_field(
         'prefix_general_settings_field',							// ID
-        __('General Settings', 'starter-plugin'),					// Title
+        __('General Settings', 'asim'),					// Title
         'prefix_general_settings_field_callback',					// Callback function
-        'starter-plugin',											// Page slug
+        'asim-dieta',											// Page slug
         'prefix_general_settings_section'							// Settings Section ID
     );
 	
@@ -96,15 +96,15 @@ function prefix_get_settings() {
  */
 function prefix_enqueue_css_js( $hook ) {
 	
-    // Load only on Starer Plugin plugin pages
-	if ( $hook != "settings_page_starter-plugin" ) {
+    // Load only on Asim Plugin plugin pages
+	if ( $hook != "settings_page_asim-dieta" ) {
 		return;
 	}
 	
 	// Main CSS
-	// wp_enqueue_style( 'prefix-admin-main-css', PREFIX_STARTER_PLUGIN_URL . 'admin/css/main.css', '', PREFIX_VERSION_NUM );
+	// wp_enqueue_style( 'prefix-admin-main-css', PREFIX_ASIM_PLUGIN_URL . 'admin/css/main.css', '', PREFIX_VERSION_NUM );
 	
 	// Main JS
-    // wp_enqueue_script( 'prefix-admin-main-js', PREFIX_STARTER_PLUGIN_URL . 'admin/js/main.js', array( 'jquery' ), false, true );
+    // wp_enqueue_script( 'prefix-admin-main-js', PREFIX_ASIM_PLUGIN_URL . 'admin/js/main.js', array( 'jquery' ), false, true );
 }
 add_action( 'admin_enqueue_scripts', 'prefix_enqueue_css_js' );

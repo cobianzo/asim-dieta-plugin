@@ -6,7 +6,6 @@
  * @function	prefix_activate_plugin()		Plugin activatation todo list
  * @function	prefix_load_plugin_textdomain()	Load plugin text domain
  * @function	prefix_settings_link()			Print direct link to plugin settings in plugins list in admin
- * @function	prefix_plugin_row_meta()		Add donate and other links to plugins list
  * @function	prefix_footer_text()			Admin footer text
  * @function	prefix_footer_version()			Admin footer version
  */
@@ -30,7 +29,7 @@ function prefix_activate_plugin() {
  * @since 1.0
  */
 function prefix_load_plugin_textdomain() {
-    load_plugin_textdomain( 'starter-plugin', false, '/starter-plugin/languages/' );
+    load_plugin_textdomain( 'asim', false, '/asim-dieta/languages/' );
 }
 add_action( 'plugins_loaded', 'prefix_load_plugin_textdomain' );
 
@@ -42,30 +41,12 @@ add_action( 'plugins_loaded', 'prefix_load_plugin_textdomain' );
 function prefix_settings_link( $links ) {
 	return array_merge(
 		array(
-			'settings' => '<a href="' . admin_url( 'options-general.php?page=starter-plugin' ) . '">' . __( 'Settings', 'starter-plugin' ) . '</a>'
+			'settings' => '<a href="' . admin_url( 'options-general.php?page=asim-dieta' ) . '">' . __( 'Settings', 'asim-dieta' ) . '</a>'
 		),
 		$links
 	);
 }
-add_filter( 'plugin_action_links_' . PREFIX_STARTER_PLUGIN . '/starter-plugin.php', 'prefix_settings_link' );
-
-/**
- * Add donate and other links to plugins list
- *
- * @since 1.0
- */
-function prefix_plugin_row_meta( $links, $file ) {
-	if ( strpos( $file, 'starter-plugin.php' ) !== false ) {
-		$new_links = array(
-				'donate' 	=> '<a href="http://millionclues.com/donate/" target="_blank">Donate</a>',
-				'kuttappi' 	=> '<a href="http://kuttappi.com/" target="_blank">My Travelogue</a>',
-				'hireme' 	=> '<a href="http://millionclues.com/portfolio/" target="_blank">Hire Me For A Project</a>',
-				);
-		$links = array_merge( $links, $new_links );
-	}
-	return $links;
-}
-add_filter( 'plugin_row_meta', 'prefix_plugin_row_meta', 10, 2 );
+add_filter( 'plugin_action_links_' . PREFIX_ASIM_PLUGIN . '/asim-dieta.php', 'prefix_settings_link' );
 
 /**
  * Admin footer text
@@ -80,14 +61,12 @@ function prefix_footer_text($default) {
     
 	// Retun default on non-plugin pages
 	$screen = get_current_screen();
-	if ( $screen->id !== "settings_page_starter-plugin" ) {
+	if ( $screen->id !== "settings_page_asim-dieta" ) {
 		return $default;
 	}
 	
-    $prefix_footer_text = sprintf( __( 'If you like this plugin, please <a href="%s" target="_blank">make a donation</a> or leave me a <a href="%s" target="_blank">&#9733;&#9733;&#9733;&#9733;&#9733;</a> rating to support continued development. Thanks a bunch!', 'starter-plugin' ), 
-								'http://millionclues.com/donate/',
-								'https://wordpress.org/support/plugin/starter-plugin/reviews/?rate=5#new-post' 
-						);
+    $prefix_footer_text = __('Plugin developed by Asim Srl.', 'asim');
+								
 	
 	return $prefix_footer_text;
 }
@@ -102,7 +81,7 @@ function prefix_footer_version($default) {
 	
 	// Retun default on non-plugin pages
 	$screen = get_current_screen();
-	if ( $screen->id !== 'settings_page_starter-plugin' ) {
+	if ( $screen->id !== 'settings_page_asim-dieta' ) {
 		return $default;
 	}
 	

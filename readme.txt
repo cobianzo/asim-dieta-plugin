@@ -1,7 +1,7 @@
-=== Starter Plugin ===
-Contributors: arunbasillal
-Donate link: http://millionclues.com/donate/
-Tags: add, some, tags
+=== Asim Dieta ===
+Contributors: arunbasillal, cobianzo, soldatino
+Donate link: 
+Tags: diet, nutricionist, user management
 Requires at least: 2.0
 Tested up to: 4.8.1
 Requires PHP: 5.5
