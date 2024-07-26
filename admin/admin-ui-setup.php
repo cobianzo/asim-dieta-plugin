@@ -94,6 +94,7 @@ function prefix_get_settings() {
  *
  * @since 1.0
  */
+add_action( 'admin_enqueue_scripts', 'prefix_enqueue_css_js' );
 function prefix_enqueue_css_js( $hook ) {
 	
     // Load only on Asim Plugin plugin pages
@@ -107,4 +108,3 @@ function prefix_enqueue_css_js( $hook ) {
 	// Main JS
     // wp_enqueue_script( 'prefix-admin-main-js', PREFIX_ASIM_PLUGIN_URL . 'admin/js/main.js', array( 'jquery' ), false, true );
 }
-add_action( 'admin_enqueue_scripts', 'prefix_enqueue_css_js' );
